@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './components/Header.js';
+import DogInput from './components/DogInput.js';
+import DogResult from './components/DogResult.js';
+import Footer from './components/Footer.js';
+import { useState } from 'react';
 
 function App() {
+  const [dogImg,setDogImg]=useState('')
+  const [dogType, setDogType] = useState('')
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header/>
+          <DogInput
+          setDogImg={setDogImg}
+          setDogType={setDogType} />
+          <DogResult dogImg={dogImg}
+          dogType={dogType}/>
+        <Footer/>
     </div>
   );
 }
